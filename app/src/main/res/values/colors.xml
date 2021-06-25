@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#EDEDED</color>
+    <color name="colorPrimary">#006AE6</color>
+    <color name="colorPrimaryVariant">#003D85</color>
+    <color name="colorOnPrimary">#F8F8F8</color>
+    <!-- Secondary brand color. -->
+
+    <color name="colorSecondary">#9E0000</color>
+    <color name="colorSecondaryVariant">#5C0000</color>
+    <color name="colorOnSecondary">#F8F8F8</color>
+
+</resources>
