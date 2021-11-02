@@ -1,10 +1,10 @@
-package com.code.collura.decrypter.crypter;
+package com.code.collura.decrypter.crypto;
 
 import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.code.collura.decrypter.base.MyApplication;
+import com.code.collura.decrypter._base.MyApplication;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

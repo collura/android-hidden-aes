@@ -7,12 +7,31 @@
     android:background="@color/background"
     tools:context=".main.AppMainView">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Digite o texto a ser processado"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/btn_content_paste"
+        app:layout_constraintStart_toStartOf="@+id/cardView1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_content_paste"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_content_paste_16" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView1"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:cardCornerRadius="@dimen/card_radius"
         app:cardElevation="@dimen/card_elevation"
@@ -20,23 +39,30 @@
         app:flow_verticalAlign="top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/btn_content_paste">
 
-        <EditText
-            android:id="@+id/txt_input"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:minHeight="200dp"
-            android:textSize="17sp" />
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/txt_input_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:minHeight="200dp"
+                android:padding="16dp"
+                android:selectAllOnFocus="true"
+                android:textIsSelectable="true"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -59,37 +85,38 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/hint_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/white"
+            android:padding="16dp"
             tools:visibility="visible">
 
             <TextView
                 android:id="@+id/txt_hint"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="Insira o texto na caixa acima e escolha a opção desejada."
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text='Digite a "chave de segurança" para a criptografia na caixa acima. Digite o texto que será processado e clique no botão de "cadeado fechado" caso queira criptografá-lo. Caso queira decriptografá-lo, clique no botão com o "cadeado fechado".'
                 android:textColor="#9A9A9A"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/img_hint"
+                app:lineHeight="24dp" />
 
             <ImageView
                 android:id="@+id/img_hint"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:layout_marginBottom="90dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/txt_hint"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/txt_hint"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/txt_hint"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.48000002"
+                app:layout_constraintVertical_bias="0.49"
                 app:srcCompat="@drawable/ic_info_48" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -100,26 +127,30 @@
             android:layout_height="match_parent"
             android:background="@android:color/white"
             android:visibility="gone"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="Resultado da conversão"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_share"
+                android:layout_height="48dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:text="Resultado do processamento"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toStartOf="@+id/btn_share"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/btn_share" />
 
             <ImageButton
                 android:id="@+id/btn_share"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:background="@color/colorPrimary"
+                android:tint="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_share_24" />
@@ -127,21 +158,25 @@
             <ScrollView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_margin="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/btn_share">
 
                 <TextView
                     android:id="@+id/txt_result"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:selectAllOnFocus="true"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="start|left"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="8dp"
+                    android:selectAllOnFocus="false"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique elementum lorem, ut egestas erat varius eget. Praesent magna libero, volutpat quis viverra at, cursus et est. Vestibulum volutpat augue ipsum, ac scelerisque sem porttitor ut. Cras lacinia, velit at rutrum feugiat, augue odio egestas metus, sed feugiat risus risus eu arcu. Nulla bibendum enim turpis, at pellentesque neque mollis consectetur. Cras sagittis lectus quis pretium gravida. Nullam imperdiet dolor sit amet quam semper, a semper augue cursus. Donec elementum, nunc sit amet tincidunt varius, eros nisi vehicula nunc, sed consectetur eros ipsum nec nisl. Donec a turpis nulla. Aenean iaculis convallis sollicitudin. Praesent rutrum risus egestas, ullamcorper eros quis, auctor ex. Donec vulputate at augue quis porttitor.  Phasellus volutpat ut elit id fringilla. Fusce libero felis, efficitur eget lacus sed, elementum lobortis leo. Suspendisse vitae purus ac enim dapibus mollis. Aenean in lacus aliquam, ullamcorper neque eu, suscipit ligula. Nam vestibulum, ligula ut sodales mattis, nulla eros pretium magna, quis venenatis ipsum dui vel quam. Nulla fermentum, sapien a porttitor blandit, nisi mi posuere ex, ut commodo odio diam ac enim. Mauris eu posuere quam.  Curabitur nec ligula commodo, molestie sem ut, interdum est. Integer scelerisque mauris in elementum scelerisque. Phasellus gravida finibus sem mollis semper. Duis tristique turpis non vulputate varius. Fusce id turpis placerat, eleifend lacus sit amet, molestie eros. Ut vulputate enim nec tellus convallis sollicitudin. Quisque feugiat a ipsum ac volutpat. Quisque a nibh ut neque molestie facilisis. Proin eu leo velit. Ut tincidunt quam velit. Sed tincidunt tortor lacus, vitae pellentesque mi imperdiet vitae. Nunc et tincidunt erat, sed sollicitudin turpis. Duis varius cursus mollis. Aenean non turpis non risus egestas rhoncus.  Curabitur odio nisl, hendrerit quis auctor eget, volutpat ut dui. Nullam ullamcorper tellus id quam interdum, eget tempor eros consectetur. Proin sit amet faucibus arcu. Sed tempor auctor metus eu faucibus. Cras vitae fermentum purus, ac dignissim dui. Mauris quis volutpat purus. Pellentesque ligula lorem, faucibus nec efficitur eget, viverra et nulla.  Phasellus quis quam suscipit, condimentum tellus id, mollis turpis. In hac habitasse platea dictumst. Nunc luctus eu ante sit amet convallis. Donec varius dapibus sapien, et porta eros ultricies vitae. Sed justo odio, laoreet in enim pretium, sodales feugiat enim. Nunc at elit eu massa imperdiet tincidunt. Praesent eget euismod sem. Nunc quam orci, placerat vitae maximus vel, laoreet vitae est. Phasellus ac mi tincidunt, facilisis libero ut, viverra sem. Ut vitae diam est. Integer posuere sollicitudin lectus vitae iaculis. Nulla non velit vel enim euismod gravida sit amet scelerisque massa. Morbi iaculis est a nisl egestas tincidunt. Ut at tellus aliquet nunc dictum efficitur. Vivamus euismod laoreet suscipit."
-                    android:textIsSelectable="true" />
+                    android:textIsSelectable="true"
+                    android:textSize="16sp" />
             </ScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -180,17 +215,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_decript"
         app:layout_constraintEnd_toStartOf="@+id/btn_clean"
-        app:layout_constraintStart_toEndOf="@+id/btn_decript"
-        app:layout_constraintTop_toTopOf="@+id/btn_decript" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Texto a ser criptografado/descriptografado"
-        app:layout_constraintStart_toStartOf="@+id/cardView1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btn_decript" />
 
     <ImageButton
         android:id="@+id/btn_clean"
@@ -200,7 +225,6 @@
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_cleaning_24"
         app:layout_constraintBottom_toBottomOf="@+id/txt_security_key"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txt_security_key" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

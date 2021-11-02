@@ -1,4 +1,4 @@
-package com.code.collura.decrypter.crypter;
+package com.code.collura.decrypter.crypto;
 
 
 

@@ -1,14 +1,15 @@
-package com.code.collura.decrypter.base;
+package com.code.collura.decrypter._base;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import java.util.Calendar;
-import java.util.TimeZone;
+import androidx.appcompat.app.AppCompatDelegate;
 
 // Esta classe é a classe pai da aplicação
 // Ela é a primeira a ser criada e ultima a
@@ -21,6 +22,7 @@ public class MyApplication extends Application {
     private static MyApplication instance;
     public static Toast shortToast;
     public static Toast longToast;
+    public static SharedPreferences preferences;
 
     @SuppressLint({"ShowToast", "SimpleDateFormat"})
     @Override
@@ -38,6 +40,9 @@ public class MyApplication extends Application {
         longToast = Toast.makeText(this, "", Toast.LENGTH_LONG);
         longToast.setGravity(Gravity.CENTER, 0, 0);
         footerText = "";
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        preferences = getApplicationContext().getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
     }
 

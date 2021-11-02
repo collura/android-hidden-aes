@@ -2,6 +2,7 @@
 <resources>
     <color name="background">#EDEDED</color>
     <color name="colorPrimary">#006AE6</color>
+    <color name="colorPrimaryLight">#479BFD</color>
     <color name="colorPrimaryVariant">#003D85</color>
     <color name="colorOnPrimary">#F8F8F8</color>
     <!-- Secondary brand color. -->
@@ -10,4 +11,6 @@
     <color name="colorSecondaryVariant">#5C0000</color>
     <color name="colorOnSecondary">#F8F8F8</color>
 
+    <!-- Outras-->
+    <color name="grey_light">#A1A1A1</color>
 </resources>
