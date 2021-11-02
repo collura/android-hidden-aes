@@ -50,7 +50,7 @@ public class MyApplication extends Application {
         return instance;
     }
 
-    public String getVersionName(){
+    public static String getVersionName(){
         return versionName;
     }
 
