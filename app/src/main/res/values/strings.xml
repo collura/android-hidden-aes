@@ -5,9 +5,11 @@
         Criptografia/descriptografia de mensagem com
         chave de segurança.  Este aplicativo utiliza
         o algoritmo de chave simétrica AES no modo CBC.
+        Para o seu funcionamento, este aplicativo não realiza
+        conexão com a internet.
     </string>
     <string name="hint_main_text">
-        Para criptografar, Informe a mensagem e em
+        Para criptografar, informe a mensagem e em
         seguida digite a chave de segurança desejada,
         clicando no botão verde.
         Para descriptografar, informe a mensagem
