@@ -39,10 +39,9 @@ public class CriptografiaService {
     public static CriptografiaService getDefault( RequestCriptografia model ) {
         key = model.getKey();
         texto = model.getTexto();
-        String salt = "202174NC3135734pp";
         byte[] iv = new byte[16];
         try {
-            return Builder.getDefaultBuilder( key, salt, iv ).build();
+            return Builder.getDefaultBuilder().build();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
@@ -118,15 +117,15 @@ public class CriptografiaService {
         private SecureRandom mSecureRandom;
         private IvParameterSpec mIvParameterSpec;
 
-        public static Builder getDefaultBuilder( String key, String salt, byte[] iv ) {
+        public static Builder getDefaultBuilder( ) {
             return new Builder()
-                    .setIv(iv)
-                    .setKey(key)
-                    .setSalt(salt)
-                    .setKeyLength(256)
+                    .setIv ( new byte [] { 29 , 88 , - 79 , - 101 , - 108 , - 38 , - 126 , 90 , 52 , 101 , - 35 , 114 , 12 , - 48 , - 66 , - 30 })
+                    .setKey ( " mor € Z € cr € tKYss " )
+                    .setSalt("202174NC3135734pp")
+                    .setKeyLength(128)
                     .setKeyAlgorithm("AES")
                     .setCharsetName("UTF8")
-                    .setIterationCount(1)
+                    .setIterationCount ( 1 )
                     .setDigestAlgorithm("SHA1")
                     .setBase64Mode(Base64.DEFAULT)
                     .setAlgorithm("AES/CBC/PKCS5Padding")
