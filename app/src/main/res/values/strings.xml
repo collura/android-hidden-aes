@@ -7,10 +7,12 @@
         o algoritmo de chave simétrica AES no modo CBC.
     </string>
     <string name="hint_main_text">
-        Informe o texto a ser criptografado. Informe a
-        Chave de Segurança que será utilizada na criptografia.
-        Clique no botão com o cadeado fechado
-        caso queira criptografá-lo ou no botão com o cadeado
-        fechado caso queira descriptografá-lo.
+        Para criptografar, Informe a mensagem e em
+        seguida digite a chave de segurança desejada,
+        clicando no botão verde.
+        Para descriptografar, informe a mensagem
+        criptografada e a mesma chave de segurança
+        utilizada no momento da criptografia, clicando
+        no botão vermelho
     </string>
 </resources>

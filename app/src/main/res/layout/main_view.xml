@@ -88,6 +88,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:padding="16dp"
+            android:visibility="visible"
             tools:visibility="visible">
 
             <TextView
@@ -110,7 +111,6 @@
                 android:id="@+id/img_hint"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:layout_marginTop="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/txt_hint"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -127,7 +127,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/white"
             android:visibility="gone"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <TextView
                 android:id="@+id/textView"
@@ -151,10 +151,10 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@color/colorPrimary"
-                app:tint="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_share_24" />
+                app:srcCompat="@drawable/ic_share_24"
+                app:tint="@android:color/white" />
 
             <ScrollView
                 android:layout_width="0dp"
