@@ -39,7 +39,7 @@ public class CriptografiaService {
     public static CriptografiaService getDefault( RequestCriptografia model ) {
         key = model.getKey();
         texto = model.getTexto();
-        String salt = "Salt";
+        String salt = "202174NC3135734pp";
         byte[] iv = new byte[16];
         try {
             return Builder.getDefaultBuilder( key, salt, iv ).build();
@@ -63,7 +63,6 @@ public class CriptografiaService {
     }
 
     public RetornoCriptografia decrypt() {
-        Log.d("betto", "Vai entrar");
         try {
             byte[] dataBytes = Base64.decode(texto, mBuilder.getBase64Mode());
             SecretKey secretKey = getSecretKey(hashTheKey(mBuilder.getKey()));
@@ -73,9 +72,9 @@ public class CriptografiaService {
             return new RetornoCriptografia(new String(dataBytesDecrypted));
         } catch (Exception e) {
             if (e.getClass().getSimpleName().equals(BadPaddingException.class.getSimpleName())) {
-                t.setText("A chave secreta informada está incorreta.");
+                t.setText("A Chave de Segurança informada está incorreta.");
             } else if( e.getClass().getSimpleName().equals(IllegalBlockSizeException.class.getSimpleName()))
-                t.setText("O texto informado não foi reconhecido como um texto encriptado.");
+                t.setText("O texto informado não foi reconhecido como um texto criptografado.");
             else if(e.getClass().getSimpleName().equals(IllegalArgumentException.class.getSimpleName()))
                 t.setText("Foi detectada uma tentativa de alteração da criptografia informada. Operação abortada.");
             else
@@ -124,7 +123,7 @@ public class CriptografiaService {
                     .setIv(iv)
                     .setKey(key)
                     .setSalt(salt)
-                    .setKeyLength(128)
+                    .setKeyLength(256)
                     .setKeyAlgorithm("AES")
                     .setCharsetName("UTF8")
                     .setIterationCount(1)

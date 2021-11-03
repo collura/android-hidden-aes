@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">H1DD3N-A3S</string>
     <string name="title_activity_app_main_view">AppMainView</string>
+    <string name="about_text">
+        Criptografia/descriptografia de mensagem com
+        chave de segurança.  Este aplicativo utiliza
+        o algoritmo de chave simétrica AES no modo CBC.
+    </string>
+    <string name="hint_main_text">
+        Informe o texto a ser criptografado. Informe a
+        Chave de Segurança que será utilizada na criptografia.
+        Clique no botão com o cadeado fechado
+        caso queira criptografá-lo ou no botão com o cadeado
+        fechado caso queira descriptografá-lo.
+    </string>
 </resources>

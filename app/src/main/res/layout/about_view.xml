@@ -69,7 +69,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center_horizontal"
-                android:text="Criptografia / descriptografia de texto com chave de segurança.  Este aplicativo utiliza o algoritmo de chave assimétrica AES no modo CBC. Para aumentar a operabilidade e segurança, a última chave secreta utilizada é armazenada em memória interna do dispositivo em forma criptografada."
+                android:text="@string/about_text"
                 android:textColor="@color/grey_light"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

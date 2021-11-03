@@ -84,7 +84,6 @@ class AppMainPresenter implements MainPresenter {
             KeyboardService.hide(view, view.binding.txtInputContent);
             KeyboardService.hide(view, view.binding.txtSecurityKey);
             view.binding.txtResult.setText("");
-            view.binding.txtSecurityKey.setText("");
             view.binding.txtInputContent.setText("");
             view.binding.txtInputContent.requestFocus();
             view.binding.resultContainer.setVisibility(View.GONE);

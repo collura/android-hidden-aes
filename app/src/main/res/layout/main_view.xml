@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text='Digite a "chave de segurança" para a criptografia na caixa acima. Digite o texto que será processado e clique no botão de "cadeado fechado" caso queira criptografá-lo. Caso queira decriptografá-lo, clique no botão com o "cadeado fechado".'
+                android:text="@string/hint_main_text"
                 android:textColor="#9A9A9A"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -137,6 +137,7 @@
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
                 android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:text="Resultado do processamento"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
@@ -150,7 +151,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@color/colorPrimary"
-                android:tint="@android:color/white"
+                app:tint="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_share_24" />
