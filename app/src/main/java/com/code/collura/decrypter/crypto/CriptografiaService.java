@@ -1,7 +1,6 @@
 package com.code.collura.decrypter.crypto;
 
 import android.util.Base64;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.code.collura.decrypter._base.MyApplication;
@@ -23,7 +22,6 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
 
-
 public class CriptografiaService {
     private Builder mBuilder;
     private static String key;
@@ -39,9 +37,10 @@ public class CriptografiaService {
     public static CriptografiaService getDefault( RequestCriptografia model ) {
         key = model.getKey();
         texto = model.getTexto();
+        String salt = "Salt";
         byte[] iv = new byte[16];
         try {
-            return Builder.getDefaultBuilder().build();
+            return Builder.getDefaultBuilder( key, salt, iv ).build();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
@@ -117,21 +116,22 @@ public class CriptografiaService {
         private SecureRandom mSecureRandom;
         private IvParameterSpec mIvParameterSpec;
 
-        public static Builder getDefaultBuilder( ) {
+        static Builder getDefaultBuilder( String key, String salt, byte[] iv ) {
             return new Builder()
-                    .setIv ( new byte [] { 29 , 88 , - 79 , - 101 , - 108 , - 38 , - 126 , 90 , 52 , 101 , - 35 , 114 , 12 , - 48 , - 66 , - 30 })
-                    .setKey ( " mor € Z € cr € tKYss " )
-                    .setSalt("202174NC3135734pp")
+                    .setIv(iv)
+                    .setKey(key)
+                    .setSalt(salt)
                     .setKeyLength(128)
                     .setKeyAlgorithm("AES")
                     .setCharsetName("UTF8")
-                    .setIterationCount ( 1 )
+                    .setIterationCount(1)
                     .setDigestAlgorithm("SHA1")
                     .setBase64Mode(Base64.DEFAULT)
                     .setAlgorithm("AES/CBC/PKCS5Padding")
                     .setSecureRandomAlgorithm("SHA1PRNG")
                     .setSecretKeyType("PBKDF2WithHmacSHA1");
         }
+
 
         private CriptografiaService build() throws NoSuchAlgorithmException {
             setSecureRandom( SecureRandom.getInstance(getSecureRandomAlgorithm() ));

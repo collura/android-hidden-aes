@@ -46,10 +46,36 @@ public class AppMainView extends AppCompatActivity implements MainView {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_about) {
-            startActivity(new Intent(this, AppAboutView.class));
-            return true;
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_about:
+                startActivity(new Intent(this, AppAboutView.class));
+                break;
+            case R.id.action_share_app:
+                sharedApp();
+                break;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
+
+    public void sharedApp () {
+        Intent sendIntent = new Intent ();
+        sendIntent.setType ("text/plain");
+        sendIntent.setAction (Intent.ACTION_SEND);
+        sendIntent.putExtra (Intent.EXTRA_SUBJECT,
+                "Hidden AES - Criptografia/Descriptografia de mensagens.");
+        sendIntent.putExtra (Intent.EXTRA_TEXT,
+                "Hidden AES - Criptografia/Descriptografia de " +
+                        "mensagens com Chave de Segurança. " +
+                        "\n\nApós a criptografia, somente " +
+                        "será possível decifrar a mensagem de posse da chave utilizada no" +
+                        " momento da criptografia. A mensagem pode ser compartilhada através " +
+                        "de outros aplicativos de comunicação como E-Mail ou WhatsApp, " +
+                        "proporcionando uma camada de segurança e privacidade." +
+                        "\n\n* Este aplicativo não realiza nenhum tipo de troca de dados com a internet." +
+                        "\n\nPara instalar visite : " +
+                        "\n\nhttps://play.google.com/store/apps/details?id=com.code.collura.decrypter.");
+        startActivity (Intent.createChooser (sendIntent, "Divulgar o App"));
+    }
+
 }
