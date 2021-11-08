@@ -37,7 +37,7 @@ public class CriptografiaService {
     public static CriptografiaService getDefault( RequestCriptografia model ) {
         key = model.getKey();
         texto = model.getTexto();
-        String salt = "Salt";
+        String salt = "#*)(#@3-+$u2021";
         byte[] iv = new byte[16];
         try {
             return Builder.getDefaultBuilder( key, salt, iv ).build();
